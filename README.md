@@ -10,7 +10,7 @@ Let the adventure unfold!
 
 ## Features
 - **Filters** :user can choose type of genre they want to read 
-- **status** : user can see and filter weather the manga is 
+- **status** : user can see and filter whether the manga is 
   complete, ongoing, hiatus
 - **Accessbility**: user can switch between dark/light mode
 
