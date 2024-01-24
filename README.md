@@ -5,7 +5,6 @@
    
 Let the adventure unfold!
 
-
 ## Overview
  Manga Picker 🫣 is a collection of manga in different Genre
 
