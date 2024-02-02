@@ -6,6 +6,12 @@ const port = process.env.PORT || 3000;
 app.get('/ping', (req, res) => {
   res.send('pong');
 });
+app.get('/data', (req, res) => {
+  res.send('data');
+});
+app.get('/', (req, res) => {
+  res.send('kp is great');
+});
 
 if (require.main === module) {
   app.listen(port, () => {

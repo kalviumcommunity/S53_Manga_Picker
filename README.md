@@ -14,7 +14,8 @@ Let the adventure unfold!
   complete, ongoing, hiatus
 - **Accessbility**: user can switch between dark/light mode
 
-
+## deployed server
+[server link](https://manga-picker.onrender.com/)
 
 
  
