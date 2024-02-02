@@ -1,7 +1,6 @@
 const Manga = require("../data/schema.js")
 require("dotenv").config()
 
-
 const manga1 = new Manga({
     postId: 1,
     Title: "Dragon Ball",

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const MangaSchema = new Schema({
   postId: { type: Number, required: true },  
   Title: { type: String, required: true },   
