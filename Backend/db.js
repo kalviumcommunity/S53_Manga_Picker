@@ -1,30 +1,26 @@
 const mongoose = require('mongoose');
-require("dotenv").config()
+const { MongoMemoryServer } = require('mongodb-memory-server');
 
 
-let mongoConnection;
+let mongoServer;
 
-async function startDatabase() {
-  if (mongoConnection) return;
+const startDatabase = async () => {
+  
+  mongoServer = new MongoMemoryServer();
+  await mongoServer.start();
+  const mongoUri = await mongoServer.getUri();
+  await mongoose.connect(mongoUri);
+};
 
-  const mongoUri = process.env.mongoUrl;
+const stopDatabase = async () => {
+  
+  await mongoose.connection.close();
+  await mongoServer.stop();
+};
 
-  mongoConnection = await mongoose.connect(mongoUrl);
-
-  console.log('Connected to local MongoDB database.');
+const isConnected = () => {
+  return mongoose.connection.readyState === 1;
 }
 
-async function stopDatabase() {
-  if (!mongoConnection) return;
-
-  await mongoConnection.close();
-  mongoConnection = null;
-
-  console.log('Disconnected from local MongoDB database.');
-}
-
-function isConnected() {
-  return mongoConnection.readyState === 1;
-}
 
 module.exports = { startDatabase, stopDatabase, isConnected };

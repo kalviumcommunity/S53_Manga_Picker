@@ -141,10 +141,10 @@ const manga1 = new Manga({
     Status: "Hiatus"
   });
 
-
+console.log({"u": process.env.mongoUri})
 const mongoose = require("mongoose")
 // Connect to your local MongoDB instance
-mongoose.connect(process.env.mongoUrl, {
+mongoose.connect(process.env.mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -153,6 +153,8 @@ mongoose.connect(process.env.mongoUrl, {
 
 const mangaData = [manga1, manga2, manga3, manga4, manga5, manga6, manga7, manga8, manga9, manga10];
 
-Manga.insertMany(mangaData)
-  .then(() => console.log('Manga added successfully!'))
-  .catch(err => console.error('Error adding manga:', err));
+// Manga.insertMany(mangaData)
+//   .then(() => console.log('Manga added successfully!'))
+//   .catch(err => console.error('Error adding manga:', err));
+
+  module.exports = mangaData;
