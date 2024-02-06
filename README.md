@@ -16,9 +16,3 @@ Let the adventure unfold!
 
 ## deployed server
 [server link](https://manga-picker.onrender.com/)
-
-
-
- 
-
-

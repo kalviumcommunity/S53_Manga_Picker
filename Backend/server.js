@@ -26,15 +26,7 @@ app.get('/', async (req, res) => {
   });
 });
 
-// process.on('SIGINT', async () => {
-//   await stopDatabase();
-//   process.exit(0);
-// });
 
-// process.on('SIGTERM', async () => {
-//   await stopDatabase();
-//   process.exit(0);
-// });
 
 if (require.main === module) {
   app.listen(port, () => {
