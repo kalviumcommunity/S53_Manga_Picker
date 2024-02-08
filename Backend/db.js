@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
+require("dotenv").config()
+
 
 let mongoConnection;
+console.log({"u": process.env.MongoUri})
+
 
 async function ConnectToDB() {
-  if (mongoConnection) return;
+ 
 
   const mongoUri = process.env.MongoUri;
 
@@ -24,5 +28,4 @@ async function stopDatabase() {
 function isConnected() {
   return mongoConnection.readyState === 1;
 }
-
 module.exports = { ConnectToDB, stopDatabase, isConnected };

@@ -13,14 +13,14 @@ app.get('/data', (req, res) => {
   res.send(mangadata);
 });
 
-const Router =require('./router/route')
-app.use('/api',Router)
+const Router = require('./router/route')
+app.use('/api', Router)
 
 
 
 // Updated home route
 app.get('/', async (req, res) => {
-  const dbStatus = isConnected() ? 'disconnected' :'connected' ;
+  const dbStatus = isConnected() ? 'disconnected' : 'connected';
   res.send({
     message: 'o_O',
     database: dbStatus,
