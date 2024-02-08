@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-require("dotenv").config()
-
 
 let mongoConnection;
 console.log({"u": process.env.MongoUri})
