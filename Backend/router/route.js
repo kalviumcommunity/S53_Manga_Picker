@@ -4,13 +4,6 @@ const app = express.Router()
 require("dotenv").config()
 const Manga = require("../data/schema")
 
-// // Connect to your local MongoDB instance
-// mongoose.connect(process.env.MONGO_KEY , {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//     .then(() => console.log('Connected to local MongoDB'))
-//     .catch(err => console.error('Error connecting to local MongoDB:', err));
 
 //read
 app.get('/',async (req,res)=>{

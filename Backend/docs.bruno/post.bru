@@ -1,0 +1,18 @@
+meta {
+  name: post
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/api/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "postId": 42,
+    "Title":"db"
+  }
+}

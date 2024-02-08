@@ -1,0 +1,18 @@
+meta {
+  name: update
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:3000/api/update/42
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "postId": 42,
+    "Title":"dragonball super"
+  }
+}
