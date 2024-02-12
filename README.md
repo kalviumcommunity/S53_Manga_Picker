@@ -16,3 +16,5 @@ Let the adventure unfold!
 
 ## deployed server
 [server link](https://manga-picker.onrender.com/)
+## deployed frontend
+[home page](https://manga-picker.vercel.app/)
