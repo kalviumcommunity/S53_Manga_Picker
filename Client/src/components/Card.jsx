@@ -1,8 +1,5 @@
 
 function Card({title, author, image, _id} ) {
-  console.log({title, author, image, _id} )
-
-
     return (
       <div className="p-4" >
         <div key={_id} className="card w-72 h-[625px]  glass ">
@@ -16,7 +13,6 @@ function Card({title, author, image, _id} ) {
                   <button className="btn btn-outline btn-error ">Delete</button>
                 </div>
          </div>
-
       </div>
     )
 }
