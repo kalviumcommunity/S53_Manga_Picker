@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// post method is used
 function Modal({open, setopen}) {
     const [post, setPost] = useState('');
     const [mangaName, setMangaName] = useState('');
@@ -30,6 +31,8 @@ function Modal({open, setopen}) {
             const response = await axios.post('http://localhost:3000/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName });
             setApiResponse('success');
             setError(null);
+            window.location.reload();
+            
         } catch (error) {
             setError(error.message);
         }
@@ -59,12 +62,12 @@ function Modal({open, setopen}) {
                         Author Name :
                         <input type="text" className="grow bg-transparent" placeholder="" onChange={handleAuthorNameChange} />
                     </label>
-
-                    <p>Your input: {mangaName}</p>
+                    
+                    
                     <p className='text-green-600'>API response: {JSON.stringify(apiResponse)}</p>
                     {error && <p className='text-red-600 text-1xl'>Error: {error}</p>}
                 </div>
-                <button onClick={handleSubmit} className="btn btn-outline btn-success absolute right-4 bottom-4">Post</button>
+                <button onClick={() => {handleSubmit(); setopen(false);}} className="btn btn-outline btn-success absolute right-3 bottom-2">Post</button>
             </div>
         </div>
     )

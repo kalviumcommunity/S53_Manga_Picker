@@ -20,26 +20,23 @@ app.post("/create",async (req,res)=>{
     await data.save()
     res.send({msg : true , message : "data saved successfully"})
 })
+app.put("/update/:_id", async (req, res) => {
+    let _id = req.params._id;
+    let newTitle = req.body.Title;
+    let newAuthor = req.body.Author;
+    let newImage = req.body.Image;
+    const data = await Manga.findOneAndUpdate({_id: _id}, { Title: newTitle, Author: newAuthor, Image: newImage });
+    res.send({msg : true , message : "Data updated successfully"});
+});
 
-
-// update data 
-app.put("/update/:postId",async (req,res)=>{
-    let postId = req.params.postId;
-    let newData = req.body.Title;
-    const data = await Manga.findOneAndUpdate({postId:postId}, { Title: newData });
+// Delete data
+app.delete("/delete/:_id", async (req, res) => {
+    const _id  = req.params._id;
+    console.log(_id);
+    const data = await Manga.deleteOne({_id : _id});
     
-    res.send({msg : true , message : "data updated successfully"})
+    res.send({msg : true , message : "data deleted successfully"});
+});
 
-})
-
-
-//delete data
-app.delete("/delete/:id",async (req,res)=>{
-    const id  = req.params.id
-    console.log(id)
-    const data = await Manga.deleteOne({_id : id})
-    res.send({msg : true , message : "data deleted successfully"})
-
-})
 
 module.exports = app;
