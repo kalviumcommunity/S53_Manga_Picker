@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const mangadata = require('../Backend/data/database');
+const cors = require('cors')
+app.use(cors())
+
 
 const { ConnectToDB, stopDatabase, isConnected } = require('./db');
 

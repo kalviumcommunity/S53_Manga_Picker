@@ -45,33 +45,12 @@ function Header() {
           className="aspect-[4/3] object-contain mix-blend-Screen
         md:w-[115px] "
         />
-        <div className="hidden md:flex gap-8" >
-          {menu.map((item,index) => (
-            <HeaderItem name={item.name} Icon={item.icon} i={index}/>
-          ))}
+        <div className=" flex gap-8" >
+        <HeaderItem name={menu[0].name} Icon={menu[0].icon} i={0}/>
+        <HeaderItem name={menu[1].name} Icon={menu[1].icon} i={1}/>
+        <HeaderItem name={menu[2].name} Icon={menu[2].icon} i={2}/>
         </div>
-        <div className="flex md:hidden gap-5">
-          {menu.map(
-            (item, index) =>
-              index < 3 && <HeaderItem name={""} Icon={item.icon} i={index} />
-          )}
-          <div className="md:hidden" onClick={() => setToggle(!toggle)}>
-            <HeaderItem name={""} Icon={HiDotsVertical} i={"key"} />
-            {toggle ? (
-              <div
-                className="absolute mt-3 bg-[#121212] 
-            border-[1px] border-gray-700 p-3 px-5 py-4"
-              >
-                {menu.map(
-                  (item, index) =>
-                    index > 2 && (
-                      <HeaderItem name={item.name} Icon={item.icon} i={index}/>
-                    )
-                )}
-              </div>
-            ) : null}
-          </div>
-        </div>
+       
       </div>
       <div className="dropdown dropdown-end">
         <div
