@@ -5,9 +5,7 @@ const mangadata = require('../Backend/data/database');
 const cors = require('cors')
 app.use(cors())
 
-
 const { ConnectToDB, stopDatabase, isConnected } = require('./db');
-
 
 app.use(express.json());
 
@@ -18,19 +16,17 @@ app.get('/data', (req, res) => {
 
 const Router = require('./router/route')
 app.use('/api', Router)
-
-
+const Authrout = require('./router/Auth')
+app.use('/auth',Authrout)
 
 // Updated home route
 app.get('/', async (req, res) => {
-  const dbStatus = isConnected() ? 'disconnected' : 'connected';
+  const dbStatus = isConnected() ? 'connected' : 'disconnected';
   res.send({
     message: 'o_O',
     database: dbStatus,
   });
 });
-
-
 
 if (require.main === module) {
   app.listen(port, () => {

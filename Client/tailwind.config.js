@@ -9,5 +9,6 @@ export default {
     extend: {},
   },
   plugins: [daisyui, require('tailwindcss-no-scrollbar')],
+  
 }
 

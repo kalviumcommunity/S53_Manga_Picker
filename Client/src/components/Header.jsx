@@ -67,13 +67,13 @@ function Header() {
         </div>
         <ul
           tabIndex={0}
-          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-64 glass"
         >
           <li>
-            <a className="justify-between">Profile</a>
+            <a className="justify-between">Signup</a>
           </li>
           <li>
-            <a>Settings</a>
+            <a>login</a>
           </li>
           <li>
             <a className="text-red-600">Logout</a>
