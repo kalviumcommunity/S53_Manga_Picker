@@ -10,16 +10,15 @@ function Data() {
   useEffect(() => {
     fetchData();
 
-  const intervalId = setInterval(fetchData, 1000);
-
-  
-  return () => clearInterval(intervalId);
-  }, []);
+  // const intervalId = setInterval(fetchData, 1000);
+  // return () => clearInterval(intervalId);
+  }
+  , []);
 
   const fetchData = async() => {
     axios.get("http://localhost:3000/api")
       .then((res) => {
-        console.log(res.data.data)
+        console.log(res)
         setData(res.data.data);
       })
       .catch((err) => {

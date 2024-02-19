@@ -4,8 +4,8 @@ function Update({open, oldData, setopen}) {
     const [newData, setNewData] = useState({
 		_id: oldData._id,
 		Title: oldData.Title,
-		Image: oldData.Image, // Add this line
-		Author: oldData.Author, // Add this line
+		Image: oldData.Image, 
+		Author: oldData.Author, 
 	})
 	const [response, setResponse] = useState(null)
 
@@ -69,7 +69,7 @@ function Update({open, oldData, setopen}) {
                             type="text"
                             id="newImage"
                             name="Image"
-                            value={newData.Image} // Add this line
+                            value={newData.Image} 
                             onChange={handleChange}
                         />
                         </label>
@@ -79,17 +79,15 @@ function Update({open, oldData, setopen}) {
                             type="text"
                             id="newAuthor"
                             name="Author"
-                            value={newData.Author} // Add this line
+                            value={newData.Author} 
                             onChange={handleChange}
                         />
                         </label>
                         </div>
 
                         
-                       
-
                         {response && !response.error && (
-                            <p>Item updated successfully!</p>
+                            <p className='text-2xl mt-10 text-green-600'>Updated Successfully!</p>
                         )}
                     </div>
                  ) : (

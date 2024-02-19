@@ -31,8 +31,6 @@ function Modal({open, setopen}) {
             const response = await axios.post('http://localhost:3000/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName });
             setApiResponse('success');
             setError(null);
-            window.location.reload();
-            
         } catch (error) {
             setError(error.message);
         }
