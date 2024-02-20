@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 function Update({open, oldData, setopen}) {
     const [newData, setNewData] = useState({
 		_id: oldData._id,
@@ -16,6 +17,8 @@ function Update({open, oldData, setopen}) {
 			[name]: value
 		})
 	}
+      
+
 
 	const handleSubmit = async () => {
         console.log(newData)
@@ -28,11 +31,14 @@ function Update({open, oldData, setopen}) {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify(newData)
+                    
 				}
                 )
-                
+            
 			const data = await res.json()
 			setResponse(data)
+            window.location.reload()
+            
 		} catch (error) {
 			console.error('Error:', error)
 			setResponse({ error: 'An error occurred while updating the item.' })
