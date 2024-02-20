@@ -3,7 +3,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mangadata = require('../Backend/data/database');
 const cors = require('cors')
+const cookieParser = require('cookie-parser');
 app.use(cors())
+app.use(cookieParser());
+
 
 const { ConnectToDB, stopDatabase, isConnected } = require('./db');
 

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import logo from "../assets/Logo.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   HiHome,
   HiMagnifyingGlass,
@@ -9,6 +11,10 @@ import {
 } from "react-icons/hi2";
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
 import HeaderItem from "./HeaderItem";
+import { Link } from "react-router-dom";
+import Cookies from 'js-cookie'; // Import js-cookie
+
+ 
 function Header() {
   const [toggle, setToggle] = useState(false);
   const menu = [
@@ -37,6 +43,24 @@ function Header() {
       icon: HiPauseCircle,
     },
   ];
+  const notify = () => toast.success('logged out!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    
+    });
+  const handleLogout = () => {
+    
+    Cookies.remove('Username');
+    console.log("Logged out");
+    notify()
+  };
+
   return (
     <div className="flex items-center justify-between p-5">
       <div className="flex  gap-8 items-center">
@@ -67,19 +91,24 @@ function Header() {
         </div>
         <ul
           tabIndex={0}
-          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-64 glass"
+          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-64 "
         >
-          <li>
-            <a className="justify-between">Signup</a>
+          <li> 
+            <Link to='/Signup'>
+            <a  className="justify-between ">Signup</a>
+            </Link> 
           </li>
           <li>
+            <Link to='/Login'>
             <a>login</a>
+            </Link>
           </li>
           <li>
-            <a className="text-red-600">Logout</a>
+              <button className="text-red-600" onClick={handleLogout}> Logout</button>
           </li>
         </ul>
       </div>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark"/>
     </div>
   );
 }
