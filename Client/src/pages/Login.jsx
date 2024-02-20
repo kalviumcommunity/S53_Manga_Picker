@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'; // Import js-cookie
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -23,10 +24,14 @@ function Login() {
     event.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/auth/login', { username:username, password:password });
+      console.log("response",response);
       if (response.status === 200) {
         console.log(response.data);
         // Save the token in a cookie
         Cookies.set('Username',username);
+        // Cookies.set('token',response.data.token)
+        document.cookie = "token=" + response.data.token
+       
         notify()
       } else {
         console.error('Login failed');

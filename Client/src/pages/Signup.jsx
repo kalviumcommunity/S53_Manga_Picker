@@ -19,7 +19,7 @@ function Signup() {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+    });
 
     const handleFullNameChange = (event) => {
         setFullName(event.target.value);
@@ -41,9 +41,9 @@ function Signup() {
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/auth/signup', { fullname: FullName, username: username, password: Password, confirmPassword:confirmpassword });
-            if (response.status === 200) {
-                
-                Cookies.set('token', response.data.username);
+            if (response.status === 201) {
+                Cookies.set('Username', username);
+                document.cookie = "token=" + response.data.token
                 setConfirmPassword('success');
                 setError(null);
                 console.log("created user")
@@ -55,6 +55,7 @@ function Signup() {
             setError(error.message);
         }
     }
+
 
 
     return (
