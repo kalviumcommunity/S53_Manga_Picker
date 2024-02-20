@@ -3,7 +3,6 @@ const Joi = require("joi");
 const User = require("../data/User");
 const cookieParser = require('cookie-parser'); 
 const jwt = require('jsonwebtoken'); 
-const { collection } = require("../data/schema");
 
 // Add this
 const secret = 'qwertyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklqwertyuiop'; 
@@ -43,14 +42,13 @@ const signup = async(req,res) =>{
         await newUser.save();
         
         const token = jwt.sign({username:req.body.username},secret)
-        console.log(token)
-
-        res.cookie("jwt",token,{ httpOnly: true })
-
-        res.status(201).json({message: "User created successfully"});
         
+
         // Update the token in the database
         await User.updateOne({_id:newUser._id},{$set:{token:token}})
+
+        res.status(201).json({message: "User created successfully",token:token});
+        
     }catch(error){
         console.log("Error in Signup Controller",error.message);
         res.status(500).json({"error":"Internal Server Error"});
@@ -73,15 +71,16 @@ const login = async(req,res) =>{
         if (!user || !isPasswordCorrect){
             return res.status(400).json({error:"Invalid Username or Password"});
         }
+       
 
-        // Created a token and set it as a cookie
-        res.cookie('token', user.token, { httpOnly: true });
-
+        
+        
         res.status(200).json({
             username:user.username,
-            fullname:user.fullname
+            fullname:user.fullname,
+            token:user.token
         });
-
+        
     }catch(error){
         console.log("Error in Login Controller",error.message);
         res.status(500).json({"error":"Internal Server Error"});
