@@ -40,7 +40,7 @@ function Signup() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/auth/signup', { fullname: FullName, username: username, password: Password, confirmPassword:confirmpassword });
+            const response = await axios.post('https://manga-picker.onrender.com/auth/signup', { fullname: FullName, username: username, password: Password, confirmPassword:confirmpassword });
             if (response.status === 201) {
                 Cookies.set('Username', username);
                 document.cookie = "token=" + response.data.token

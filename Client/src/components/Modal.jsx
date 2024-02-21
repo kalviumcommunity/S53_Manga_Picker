@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 
 // post method is used
@@ -26,10 +27,12 @@ function Modal({open, setopen}) {
     const handleAuthorNameChange = (event) => {
         setAuthorName(event.target.value);
     }
+    const userName = Cookies.get('Username');
+    console.log(userName)
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName });
+            const response = await axios.post('https://manga-picker.onrender.com/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName,User:userName });
             setApiResponse('success');
             setError(null);
             window.location.reload()

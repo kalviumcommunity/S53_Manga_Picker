@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 let mongoConnection;
-console.log({"u": process.env.MongoUri})
+
 
 
 async function ConnectToDB() {

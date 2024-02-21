@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Modal from './modal';
+import { Link } from 'react-router-dom';
+import Modal from './Modal';
 
-const HeaderItem = ({ name, Icon, i }) => {
+const HeaderItem = ({ name, Icon, i, path, path1 }) => {
   const [open, setOpen] = useState(false);
   
   const handleClick = (e) => {
@@ -19,7 +20,17 @@ const HeaderItem = ({ name, Icon, i }) => {
       onClick={handleClick}
     >
       <Icon />
-      <h2 className="hover:underline">{name}</h2>
+      {i === 0 ? (
+        <Link to='/'>
+          <h2 className="hover:underline">{name}</h2>
+        </Link>
+      ) : i === 3 ? (
+        <Link to='/Filter'>
+          <h2 className="hover:underline">{name}</h2>
+        </Link>
+      ) : (
+        <h2 className="hover:underline">{name}</h2>
+      )}
       <Modal open={open} setopen={setOpen} />
     </div>
   );
