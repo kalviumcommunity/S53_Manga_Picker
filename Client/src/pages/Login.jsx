@@ -23,7 +23,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', { username:username, password:password });
+      const response = await axios.post('https://manga-picker.onrender.com/auth/login', { username:username, password:password });
       console.log("response",response);
       if (response.status === 200) {
         console.log(response.data);

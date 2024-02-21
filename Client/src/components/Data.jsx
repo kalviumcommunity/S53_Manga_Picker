@@ -1,5 +1,4 @@
 import Card from './Card'
-
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
@@ -16,7 +15,7 @@ function Data() {
   , []);
 
   const fetchData = async() => {
-    axios.get("http://localhost:3000/api")
+    axios.get("https://manga-picker.onrender.com/api")
       .then((res) => {
         console.log(res)
         setData(res.data.data);
@@ -28,7 +27,7 @@ function Data() {
 
   const handleDelete = (_id) => {
     axios
-      .delete(`http://localhost:3000/api/delete/${_id}`)
+      .delete(`https://manga-picker.onrender.com/api/delete/${_id}`)
       .then(res => console.log(res))
       .catch(err => console.error(err));
     console.log("successful", _id)

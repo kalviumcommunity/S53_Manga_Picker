@@ -42,7 +42,7 @@ const signup = async(req,res) =>{
         await newUser.save();
         
         const token = jwt.sign({username:req.body.username},secret)
-        
+        console.log(token)
 
         // Update the token in the database
         await User.updateOne({_id:newUser._id},{$set:{token:token}})

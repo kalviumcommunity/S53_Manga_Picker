@@ -7,8 +7,7 @@ const MangaSchema = new Schema({
   Title: { type: String, required: true },   
   Image: String,
   Author: String,
-  Likes: Number,
-  Comments: Array,
+  User: String,
   Time: { type: Date, default: Date.now() }, 
 }, { timestamps: true });
 

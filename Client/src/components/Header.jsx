@@ -8,6 +8,7 @@ import {
   HiStar,
   HiPlayCircle,
   HiPauseCircle,
+  HiAdjustmentsHorizontal
 } from "react-icons/hi2";
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
 import HeaderItem from "./HeaderItem";
@@ -31,8 +32,8 @@ function Header() {
       icon: HiPlus,
     },
     {
-      name: "COMPLETED",
-      icon: HiStar,
+      name: "Filter",
+      icon: HiAdjustmentsHorizontal,
     },
     {
       name: "ONGOING",
@@ -74,8 +75,9 @@ function Header() {
             />
             <div className=" flex gap-8" >
             <HeaderItem name={menu[0].name} Icon={menu[0].icon} i={0}/>
-            <HeaderItem name={menu[1].name} Icon={menu[1].icon} i={1}/>
+            {/* <HeaderItem name={menu[1].name} Icon={menu[1].icon} i={1}/> */}
             <HeaderItem name={menu[2].name} Icon={menu[2].icon} i={2}/>
+            <HeaderItem name={menu[3].name} Icon={menu[3].icon} i={3}/>
             </div>
           
           </div>
