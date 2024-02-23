@@ -87,7 +87,7 @@ const manga1 = new Manga({
 
 const mongoose = require("mongoose")
 // Connect to your local MongoDB instance
-mongoose.connect(process.env.mongoUri, {
+mongoose.connect(process.env.MONGOURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
