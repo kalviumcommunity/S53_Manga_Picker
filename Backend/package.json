@@ -2,13 +2,13 @@
   "name": "S53_Manga_Picker",
   "version": "1.0.0",
   "description": "",
-  "main": "./Backend/server.js",
+  "main": "./Backend/index.js",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node server.js"
+    "serve": "node index.js"
   },
   "author": "Krishna",
   "license": "ISC",
