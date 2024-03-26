@@ -15,7 +15,7 @@ function Extract() {
       , []);
     
       const fetchData = async() => {
-        axios.get("https://manga-picker.onrender.com/api")
+        axios.get("https://manga-kappa.vercel.app/api")
           .then((res) => {
             console.log(res)
             setData(res.data.data);
@@ -27,7 +27,7 @@ function Extract() {
         }
 
         const fetchUser = async() => {
-            axios.get("https://manga-picker.onrender.com/auth")
+            axios.get("https://manga-kappa.vercel.app/auth")
               .then((res) => {
                 console.log(res.data.data)
                 setUser(res.data.data);
