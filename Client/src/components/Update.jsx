@@ -24,7 +24,7 @@ function Update({open, oldData, setopen}) {
         console.log(newData)
 		try {
 			const res = await fetch(
-				`https://manga-picker.onrender.com/api/update/${oldData._id}`,
+				`https://manga-kappa.vercel.app/api/update/${oldData._id}`,
 				{
 					method: 'PUT',
 					headers: {
