@@ -32,7 +32,7 @@ function Modal({open, setopen}) {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post('https://manga-picker.onrender.com/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName,User:userName });
+            const response = await axios.post('https://manga-kappa.vercel.app/api/create', { postId:post,Title: mangaName ,Image: imgUrl , Author: authorName,User:userName });
             setApiResponse('success');
             setError(null);
             window.location.reload()
