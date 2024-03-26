@@ -15,7 +15,7 @@ function Data() {
   , []);
 
   const fetchData = async() => {
-    axios.get("https://manga-picker.onrender.com/api")
+    axios.get("https://manga-kappa.vercel.app/api")
       .then((res) => {
         console.log(res)
         setData(res.data.data);
@@ -27,7 +27,7 @@ function Data() {
 
   const handleDelete = (_id) => {
     axios
-      .delete(`https://manga-picker.onrender.com/api/delete/${_id}`)
+      .delete(`https://manga-kappa.vercel.app/api/delete/${_id}`)
       .then(res => console.log(res))
       .catch(err => console.error(err));
     console.log("successful", _id)
